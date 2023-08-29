@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">FreeTaps</string>
+    <string name="title_activity_main">FreeTaps</string>
+    <string name="package_name">earth.freetaps.freetaps</string>
+    <string name="custom_url_scheme">earth.freetaps.freetaps</string>
+</resources>

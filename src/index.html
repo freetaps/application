@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreeTaps</title>
+    <!-- TODO: fichiers locaux -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  </head>
+
+  <body>
+    <style>
+      /* Fix displaced map at initialization */
+      body {
+        display: block !important;
+      }
+
+      #map {
+        height: 100%;
+      }
+    </style>
+
+    <script src="./routes/about.js"></script>
+    <script src="./routes/home.js"></script>
+    <script src="./routes/water-bottle.js"></script>
+
+    <ion-app>
+      <ion-router>
+        <ion-route url="/" component="page-home"></ion-route>
+        <ion-route url="/about" component="page-about"></ion-route>
+        <ion-route url="/water-bottle" component="page-water-bottle"></ion-route>
+      </ion-router>
+
+      <ion-router-outlet></ion-router-outlet>
+    </ion-app>
+  </body>
+</html>

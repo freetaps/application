@@ -1,0 +1,8 @@
+{
+  "appId": "earth.freetaps.freetaps",
+  "appName": "FreeTaps",
+  "webDir": "src",
+  "server": {
+    "androidScheme": "https"
+  }
+}
