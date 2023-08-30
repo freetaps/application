@@ -3,6 +3,8 @@
   "scripts": {
     "generate:assets": "capacitor-assets generate --iconBackgroundColor '#4259f2' --iconBackgroundColorDark '#4259f2' --splashBackgroundColor '#4259f2' --splashBackgroundColorDark '#4259f2' --logoSplashScale 0.1 --ios --android",
     "simulate:sync": "cap sync",
+    "open:android": "cap open android",
+    "open:ios": "cap open ios",
     "simulate:android": "cap run android",
     "simulate:ios": "cap run ios"
   },
