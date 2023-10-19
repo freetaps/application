@@ -9,13 +9,13 @@
     "simulate:ios": "cap run ios"
   },
   "dependencies": {
-    "@capacitor/android": "^5.3.0",
-    "@capacitor/core": "^5.3.0",
-    "@capacitor/ios": "^5.3.0",
+    "@capacitor/android": "^5.5.0",
+    "@capacitor/core": "^5.5.0",
+    "@capacitor/ios": "^5.5.0",
     "@capacitor/splash-screen": "^5.0.6"
   },
   "devDependencies": {
-    "@capacitor/assets": "^2.0.4",
-    "@capacitor/cli": "^5.3.0"
+    "@capacitor/assets": "^3.0.1",
+    "@capacitor/cli": "^5.5.0"
   }
 }
