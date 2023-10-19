@@ -12,7 +12,9 @@ customElements.define('page-water-bottle', class extends HTMLElement {
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p>TODO: page Bien laver sa gourde</p>
+  <div class="ion-content-safe-area">
+    <p>TODO: page Bien laver sa gourde</p>
+  </div>
 </ion-content>`;
   }
 });

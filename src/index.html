@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>FreeTaps</title>
     <!-- TODO: fichiers locaux -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
@@ -20,6 +20,12 @@
 
       #map {
         height: 100%;
+      }
+
+      .ion-content-safe-area {
+        padding-bottom: var(--ion-safe-area-bottom, 0);
+        padding-left: var(--ion-safe-area-left, 0);
+        padding-right: var(--ion-safe-area-right, 0);
       }
     </style>
 

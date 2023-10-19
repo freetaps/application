@@ -12,7 +12,9 @@ customElements.define('page-about', class extends HTMLElement {
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p>TODO: page À propos</p>
+  <div class="ion-content-safe-area">
+    <p>TODO: page À propos</p>
+  </div>
 </ion-content>`;
   }
 });
