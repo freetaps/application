@@ -4,7 +4,7 @@ customElements.define('page-water-bottle', class extends HTMLElement {
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button default-href="/"></ion-back-button>
+      <ion-back-button default-href="/" text="Retour"></ion-back-button>
     </ion-buttons>
 
     <ion-title>Bien laver sa gourde</ion-title>
