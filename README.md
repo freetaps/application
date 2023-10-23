@@ -35,7 +35,7 @@ Simply open [`src/index.html`](./src/index.html) in your browser and start worki
 
 #### iOS
 
-1. Update version code and version name in [`project.pbxproj`](./ios/App/App.xcodeproj/project.pbxproj)
+1. Update marketing version in [`project.pbxproj`](./ios/App/App.xcodeproj/project.pbxproj)
 2. `npm run open:ios`
 3. Product tab > Destination > Any iOS Device (arm64)
 4. Product tab > Archive
