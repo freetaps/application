@@ -4,5 +4,11 @@
   "webDir": "src",
   "server": {
     "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "backgroundColor": "#4259f2",
+      "launchAutoHide": false
+    }
   }
 }

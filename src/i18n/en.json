@@ -1,0 +1,44 @@
+{
+  "about": {
+    "freetaps-text-1": "FreeTaps is an association founded in 2011 whose mission is to list drinking water points on a free, collaborative maps throughout France, Europe and worldwide.",
+    "freetaps-text-2": "The application is constantly being enriched by towns and individuals adding data: over 17000 water points are already available!",
+    "freetaps-text-3": "If you are a local authority or a player in the water sector who would like to reference water points, contact us!",
+    "freetaps-text-4": "FreeTaps was created by the founders of Gobi.",
+    "freetaps-title": "FreeTaps",
+    "header-back": "Back",
+    "header-title": "About",
+    "gobi-text-1": "Gobi is an impact company whose mission is to accelerate change towards reusability. Since 2011, Gobi has been offering eco-designed products that are 100% made in France, sustainable alternatives to single-use objects such as disposable cups, incubators and bottles.",
+    "gobi-text-2": "Nearly 10000 organisations have already adopted our products. Thanks to this community, millions of kg of waste have been avoided!",
+    "gobi-text-3": "To find out more: <a href=\"https://en.gobilab.com/\">en.gobilab.com</a>.",
+    "gobi-title": "Gobi",
+    "terms-text-1": "Users are asked to exercise their judgement before drinking the water supplied by the points referenced on the application.",
+    "terms-text-2": "The information concerning these points is made available by FreeTaps and the community of users, but does not bind the association or its service providers. FreeTaps provides no guarantee as to the accuracy of the location of water points, their availability or the quality of the water supplied.",
+    "terms-text-3": "This is particularly important if you are planning an itinerary: FreeTaps cannot guarantee that water will be available or that its quality make it proper for human or animal consumption, so we suggest that you also contact the tourist offices or other inhabitants of the regions you intend to cross to make sure that drinking water is available on your itinerary.",
+    "terms-title": "Conditions of use",
+    "title": "About"
+  },
+  "home": {
+    "menu-about": "About",
+    "menu-add": "Add a water point",
+    "menu-close": "Close",
+    "menu-favorites": "Favorites",
+    "menu-water-bottle": "Washing your water bottle",
+    "tabs-add": "Add a water point",
+    "tabs-favorites": "Favorites",
+    "tabs-menu": "Menu"
+  },
+  "water-bottle": {
+    "header-back": "Back",
+    "header-title": "Washing your water bottle",
+    "introduction-text": "3 tips to make the most of your water bottle for as long as possible:",
+    "step-1-text": "Important, especially for juice or syrup drinkers. Rinse well, then leave your bottle to air dry to prevent it from smelling damp.",
+    "step-1-title": "A quick daily rinse",
+    "step-2-text-1": "Check that the material of your bottle is dishwasher-safe - the temperature is often 65°C. Contact the manufacturer for more information about your bottle material and if it can withstand the dishwasher.",
+    "step-2-text-2": "Note that if your bottle has decoration (silk-screen printing, plastic film), washing it in the dishwasher may gradually degrade this decoration.",
+    "step-2-title": "Put it in the dishwasher from time to time",
+    "step-3-text": "Half-fill your bottle with water and add a teaspoon of baking soda. Close your flask and shake vigorously. Empty, then rinse several times, then leave your bottle to dry.",
+    "step-3-title": "In the event of unpleasant odors",
+    "title": "Washing your water bottle",
+    "video-title": "Tutorial video to wash your water bottle correctly"
+  }
+}

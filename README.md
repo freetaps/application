@@ -10,8 +10,10 @@ The app that shows you all water points, to drink everywhere and without any pla
 
 ### Commands
 
-- `npm run generate:assets` generates icons and splash screens ([documentation](https://github.com/ionic-team/capacitor-assets))
-- `npm run simulate:sync` updates the native Android and iOS projects with the changes that have been done in the Web project, it needs to run every time an update is made ([documentation](https://ionicframework.com/docs/cli/commands/capacitor-sync))
+- `npm run assets` generates icons and splash screens ([documentation](https://github.com/ionic-team/capacitor-assets))
+- `npm run dev` compiles JavaScript and watches for changes
+- `npm run build` compiles and minifies JavaScript
+- `npm run sync` builds JavaScript and updates the native Android and iOS projects with the changes that have been done in the Web project, it needs to run every time an update is made ([documentation](https://ionicframework.com/docs/cli/commands/capacitor-sync))
 - `npm run open:android` opens Android project in Android Studio
 - `npm run open:ios` opens iOS project in Xcode
 - `npm run simulate:android` launches the app in an Android Studio virtual device ([documentation](https://capacitorjs.com/docs/android))

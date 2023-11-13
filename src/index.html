@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>FreeTaps</title>
-    <!-- TODO: fichiers locaux -->
+
+    <script src="index.min.js"></script>
+
+    <!-- TODO: try to rely on local imports, see https://github.com/supertorpe/ionic-vanilla-js/ -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   </head>
 
   <body>
+    <!-- TODO: separate file -->
     <style>
       /* Fix displaced map at initialization */
       body {
@@ -54,10 +59,6 @@
         height: 100%;
       }
     </style>
-
-    <script src="./routes/about.js"></script>
-    <script src="./routes/home.js"></script>
-    <script src="./routes/water-bottle.js"></script>
 
     <ion-app>
       <ion-router>

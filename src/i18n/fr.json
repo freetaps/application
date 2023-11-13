@@ -1,0 +1,44 @@
+{
+  "about": {
+    "freetaps-text-1": "FreeTaps est une association fondée en 2011 dont la mission est de référencer les points d’eau potable sur une application gratuite, collaborative, partout en France, en Europe et dans le monde.",
+    "freetaps-text-2": "L’application s’enrichit constamment grâce aux villes et aux particuliers qui ajoutent des données : plus de 17000 points d’eau sont déjà disponibles !",
+    "freetaps-text-3": "Si vous êtes une collectivité ou un acteur de l’eau qui voulez référencer des points, contactez-nous !",
+    "freetaps-text-4": "FreeTaps a été créé par les fondateurs de Gobi.",
+    "freetaps-title": "FreeTaps",
+    "header-back": "Retour",
+    "header-title": "À propos",
+    "gobi-text-1": "Gobi est une entreprise à impact dont la mission est d’accélérer le changement vers le réutilisable. Depuis 2011, Gobi propose des produits designs, éco-conçus et 100% fabriqués en France, alternatives durables aux objets à usage unique - gobelet, couverts, bouteilles jetables.",
+    "gobi-text-2": "Près de 10000 organisations ont déjà adopté nos produits. Grâce à cette communauté, des millions de kg de déchets ont été évités !",
+    "gobi-text-3": "Pour en savoir plus : <a href=\"https://www.gobilab.com/\">www.gobilab.com</a>.",
+    "gobi-title": "Gobi",
+    "terms-text-1": "L’utilisateur est appelé à exercer son jugement avant de consommer l’eau fournie par les points référencés sur l’application.",
+    "terms-text-2": "Les informations concernant ces points sont mises à disposition par FreeTaps et la communauté des utilisateurs, mais ne sauraient engager l’association ou ses prestataires. FreeTaps n’apporte aucune garantie quant à l’exactitude de la localisation des points d’eau, leur disponibilité ou la qualité de l’eau fournie.",
+    "terms-text-3": "Cela est particulièrement à prendre en compte si vous comptez planifier un itinéraire : FreeTaps ne peut garantir ses informations, nous vous invitons à contacter aussi les offices de tourisme ou autres habitants des régions que vous comptez traverser pour vous assurer que des possibilités de trouver de l’eau existent bien sur votre itinéraire.",
+    "terms-title": "Conditions d'utilisation",
+    "title": "À propos"
+  },
+  "home": {
+    "menu-about": "À propos",
+    "menu-add": "Ajouter un point",
+    "menu-close": "Fermer",
+    "menu-favorites": "Favoris",
+    "menu-water-bottle": "Bien laver sa gourde",
+    "tabs-add": "Ajouter un point",
+    "tabs-favorites": "Favoris",
+    "tabs-menu": "Menu"
+  },
+  "water-bottle": {
+    "header-back": "Retour",
+    "header-title": "Bien laver sa gourde",
+    "introduction-text": "3 conseils pour profiter de votre gourde le plus longtemps possible :",
+    "step-1-text": "Important, surtout pour les amateurs de jus ou de sirop. Rincez bien, puis laissez votre gourde sécher à l’air libre pour éviter qu’elle ne garde une odeur d’humidité.",
+    "step-1-title": "Un rapide rinçage quotidien",
+    "step-2-text-1": "Vérifiez bien que le matériau de votre gourde supporte le lavage au lave-vaisselle - souvent, la température est de 65°C. Rapprochez-vous du fabricant pour avoir plus d’informations.",
+    "step-2-text-2": "Notez que si votre gourde possède une décoration (sérigraphie, film plastique), il se peut que le lave-vaisselle dégrade progressivement cette décoration.",
+    "step-2-title": "Un passage au lave-vaisselle de temps à autre",
+    "step-3-text": "Remplissez votre gourde à moitié avec de l’eau, et ajoutez une cuillère à café de bicarbonate de soude. Fermez votre gourde, et secouez vigoureusement. Videz, puis rincez plusieurs fois, puis laissez sécher votre gourde.",
+    "step-3-title": "En cas de mauvaises odeurs",
+    "title": "Bien laver sa gourde",
+    "video-title": "Vidéo tutorielle de Gobi pour bien laver sa gourde"
+  }
+}
