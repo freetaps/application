@@ -3,6 +3,28 @@ import Translator from '../i18n/i18n';
 customElements.define('page-water-bottle', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
+<style>
+  .youtube-iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    margin: auto;
+  }
+  @media screen and (orientation: landscape) {
+    .youtube-iframe-wrapper {
+      width: 50%;
+      padding-bottom: 28.125%;
+    }
+  }
+  .youtube-iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -39,6 +61,7 @@ customElements.define('page-water-bottle', class extends HTMLElement {
     </div>
   </div>
 </ion-content>`;
+
     this.$html = document.documentElement;
     this._onLanguageChange = () => Translator.translatePage(this, 'water-bottle');
 

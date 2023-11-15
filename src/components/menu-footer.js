@@ -1,6 +1,6 @@
 import Translator from '../i18n/i18n';
 
-customElements.define('menu-footer', class extends HTMLElement {
+customElements.define('app-menu-footer', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 <ion-footer>
@@ -19,20 +19,15 @@ customElements.define('menu-footer', class extends HTMLElement {
 
     this.$html = document.documentElement;
     this.$ionSegment = this.querySelector('ion-segment');
-    this._onLanguageChange = ({ detail }) => {
-      this.$ionSegment.setAttribute('value', detail);
-    };
+    this._onLanguageChange = ({ detail }) => this.$ionSegment.setAttribute('value', detail);
+    this._onSegmentChange = ({ detail }) => Translator.setLanguage(detail.value);
 
     this.$html.addEventListener('languageChange', this._onLanguageChange);
-    this.$ionSegment.addEventListener('ionChange', this._onIonChange);
-  }
-  
-  disconnectedCallback() {
-    this.$html.removeEventListener('languageChange', this._onLanguageChange);
-    this.$ionSegment.removeEventListener('ionChange', this._onIonChange);
+    this.$ionSegment.addEventListener('ionChange', this._onSegmentChange);
   }
 
-  _onIonChange({ detail }) {
-    Translator.setLanguage(detail.value);
+  disconnectedCallback() {
+    this.$html.removeEventListener('languageChange', this._onLanguageChange);
+    this.$ionSegment.removeEventListener('ionChange', this._onSegmentChange);
   }
 });

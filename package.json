@@ -2,8 +2,8 @@
   "type": "module",
   "scripts": {
     "assets": "capacitor-assets generate --iconBackgroundColor '#4259f2' --iconBackgroundColorDark '#4259f2' --splashBackgroundColor '#4259f2' --splashBackgroundColorDark '#4259f2' --logoSplashScale 0.1 --ios --android",
-    "dev": "rollup -c -w",
-    "build": "NODE_ENV=production rollup -c",
+    "dev": "concurrently \"rollup -c -w\" \"sass --no-source-map -w src/index.scss src/index.min.css\"",
+    "build": "NODE_ENV=production rollup -c && sass --no-source-map -s compressed src/index.scss src/index.min.css",
     "sync": "npm run build && cap sync",
     "open:android": "cap open android",
     "open:ios": "cap open ios",
@@ -19,9 +19,13 @@
     "@capacitor/preferences": "^5.0.6",
     "@capacitor/splash-screen": "^5.0.6",
     "@ionic/core": "^7.5.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "rollup": "^4.3.0"
+    "concurrently": "^8.2.2",
+    "maplibre-gl": "^3.6.0",
+    "rollup": "^4.3.0",
+    "sass": "^1.69.5"
   }
 }

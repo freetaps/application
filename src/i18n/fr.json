@@ -27,6 +27,9 @@
     "tabs-favorites": "Favoris",
     "tabs-menu": "Menu"
   },
+  "map": {
+    "AttributionControl.ToggleAttribution": "Afficher les droits d'auteur"
+  },
   "water-bottle": {
     "header-back": "Retour",
     "header-title": "Bien laver sa gourde",

@@ -27,6 +27,9 @@
     "tabs-favorites": "Favorites",
     "tabs-menu": "Menu"
   },
+  "map": {
+    "AttributionControl.ToggleAttribution": "Show copyright"
+  },
   "water-bottle": {
     "header-back": "Back",
     "header-title": "Washing your water bottle",

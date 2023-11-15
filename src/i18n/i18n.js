@@ -11,6 +11,12 @@ const TRANSLATIONS = {
  * Inspired from https://codeburst.io/translating-your-website-in-pure-javascript-98b9fa4ce427
  */
 const Translator = new class {
+  getTranslation(nameSpace) {
+    const lang = document.documentElement.lang;
+
+    return TRANSLATIONS[lang]?.[nameSpace];
+  }
+
   setup() {
     Preferences.get({ key: 'language' }).then(({ value }) => this.setLanguage(value));
   }
@@ -29,11 +35,11 @@ const Translator = new class {
   }
 
   translatePage($page, pageName) {
-    const lang = document.documentElement.lang;
+    const pageTranslation = this.getTranslation(pageName);
 
     $page.querySelectorAll('[data-i18n]').forEach(($element) => {
       const key = $element.dataset.i18n;
-      const translation = TRANSLATIONS[lang]?.[pageName]?.[key];
+      const translation = pageTranslation?.[key];
 
       if (translation) {
         $element.innerHTML = translation;
@@ -45,7 +51,7 @@ const Translator = new class {
     $page.querySelectorAll('[data-i18n-attr]').forEach(($element) => {
       const attr = $element.dataset.i18nAttr;
       const key = $element.dataset.i18nAttrKey;
-      const translation = TRANSLATIONS[lang]?.[pageName]?.[key];
+      const translation = pageTranslation?.[key];
 
       if (translation) {
         $element.setAttribute(attr, translation);

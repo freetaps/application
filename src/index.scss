@@ -1,0 +1,14 @@
+@use '../node_modules/maplibre-gl/dist/maplibre-gl.css';
+
+.ion-content-safe-area {
+  padding-bottom: var(--ion-safe-area-bottom, 0);
+  padding-left: var(--ion-safe-area-left, 0);
+  padding-right: var(--ion-safe-area-right, 0);
+
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
