@@ -12,9 +12,12 @@
   },
   "dependencies": {
     "@capacitor/android": "^5.5.0",
+    "@capacitor/app-launcher": "^5.0.6",
     "@capacitor/assets": "^3.0.1",
     "@capacitor/cli": "^5.5.0",
     "@capacitor/core": "^5.5.0",
+    "@capacitor/dialog": "^5.0.6",
+    "@capacitor/geolocation": "^5.0.6",
     "@capacitor/ios": "^5.5.0",
     "@capacitor/preferences": "^5.0.6",
     "@capacitor/splash-screen": "^5.0.6",

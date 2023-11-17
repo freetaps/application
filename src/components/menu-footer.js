@@ -19,8 +19,6 @@ customElements.define('app-menu-footer', class extends HTMLElement {
 
     this.$html = document.documentElement;
     this.$ionSegment = this.querySelector('ion-segment');
-    this._onLanguageChange = ({ detail }) => this.$ionSegment.setAttribute('value', detail);
-    this._onSegmentChange = ({ detail }) => Translator.setLanguage(detail.value);
 
     this.$html.addEventListener('languageChange', this._onLanguageChange);
     this.$ionSegment.addEventListener('ionChange', this._onSegmentChange);
@@ -29,5 +27,13 @@ customElements.define('app-menu-footer', class extends HTMLElement {
   disconnectedCallback() {
     this.$html.removeEventListener('languageChange', this._onLanguageChange);
     this.$ionSegment.removeEventListener('ionChange', this._onSegmentChange);
+  }
+
+  _onLanguageChange = ({ detail }) => {
+    this.$ionSegment.setAttribute('value', detail);
+  }
+
+  _onSegmentChange = ({ detail }) => {
+    Translator.setLanguage(detail.value);
   }
 });

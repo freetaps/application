@@ -18,6 +18,8 @@
     "title": "À propos"
   },
   "home": {
+    "mapGeolocationButton": "Me localiser",
+    "mapRotationButton": "Réinitialiser l'orientation",
     "menu-about": "À propos",
     "menu-add": "Ajouter un point",
     "menu-close": "Fermer",
@@ -28,7 +30,15 @@
     "tabs-menu": "Menu"
   },
   "map": {
-    "AttributionControl.ToggleAttribution": "Afficher les droits d'auteur"
+    "geolocationSettingsPrompt": {
+      "cancelButtonTitle": "Annuler",
+      "message": "Active la localisation pour voir les points d'eau autour de toi.",
+      "okButtonTitle": "Paramètres",
+      "title": "Localisation désactivée"
+    },
+    "locale": {
+      "AttributionControl.ToggleAttribution": "Afficher les droits d'auteur"
+    }
   },
   "water-bottle": {
     "header-back": "Retour",

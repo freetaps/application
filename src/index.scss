@@ -1,5 +1,14 @@
 @use '../node_modules/maplibre-gl/dist/maplibre-gl.css';
 
+:root {
+  --ion-color-primary: #4259f2;
+  --ion-color-primary-rgb: 66,89,242;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #3a4ed5;
+  --ion-color-primary-tint: #556af3;
+}
+
 .ion-content-safe-area {
   padding-bottom: var(--ion-safe-area-bottom, 0);
   padding-left: var(--ion-safe-area-left, 0);

@@ -36,13 +36,17 @@ customElements.define('page-about', class extends HTMLElement {
 </ion-content>`;
 
     this.$html = document.documentElement;
-    this._onLanguageChange = () => Translator.translatePage(this, 'about');
 
     this._onLanguageChange();
+
     this.$html.addEventListener('languageChange', this._onLanguageChange);
   }
 
   disconnectedCallback() {
     this.$html.removeEventListener('languageChange', this._onLanguageChange);
+  }
+
+  _onLanguageChange = () => {
+    Translator.translatePage(this, 'about');
   }
 });

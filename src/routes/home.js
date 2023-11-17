@@ -3,7 +3,7 @@ import Translator from '../i18n/i18n';
 customElements.define('page-home', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-<ion-content id="home-content">
+<ion-content id="home-content" scroll-x="false" scroll-y="false">
   <app-map></app-map>
 </ion-content>
 
@@ -64,11 +64,9 @@ customElements.define('page-home', class extends HTMLElement {
     this.$menu = document.getElementById('home-menu');
     this.$menuCloseButton = document.getElementById('home-menu-close-button');
     this.$menuOpenButton = document.getElementById('home-tabs-menu-button');
-    this._onLanguageChange = () => Translator.translatePage(this, 'home');
-    this._onMenuClose = () => this.$menu.close();
-    this._onMenuOpen = () => this.$menu.open();
 
     this._onLanguageChange();
+
     this.$html.addEventListener('languageChange', this._onLanguageChange);
     this.$menuCloseButton.addEventListener('click', this._onMenuClose);
     this.$menuOpenButton.addEventListener('click', this._onMenuOpen);
@@ -78,5 +76,17 @@ customElements.define('page-home', class extends HTMLElement {
     this.$html.removeEventListener('languageChange', this._onLanguageChange);
     this.$menuCloseButton.removeEventListener('click', this._onMenuClose);
     this.$menuOpenButton.removeEventListener('click', this._onMenuOpen);
+  }
+
+  _onLanguageChange = () => {
+    Translator.translatePage(this, 'home');
+  }
+
+  _onMenuClose = () => {
+    this.$menu.close();
+  }
+
+  _onMenuOpen = () => {
+    this.$menu.open();
   }
 });

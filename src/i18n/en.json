@@ -18,6 +18,8 @@
     "title": "About"
   },
   "home": {
+    "mapGeolocationButton": "Locate me",
+    "mapRotationButton": "Reset orientation",
     "menu-about": "About",
     "menu-add": "Add a water point",
     "menu-close": "Close",
@@ -28,7 +30,15 @@
     "tabs-menu": "Menu"
   },
   "map": {
-    "AttributionControl.ToggleAttribution": "Show copyright"
+    "geolocationSettingsPrompt": {
+      "cancelButtonTitle": "Cancel",
+      "message": "Enable location to see water points around you.",
+      "okButtonTitle": "Settings",
+      "title": "Location disabled"
+    },
+    "locale": {
+      "AttributionControl.ToggleAttribution": "Show copyright"
+    }
   },
   "water-bottle": {
     "header-back": "Back",

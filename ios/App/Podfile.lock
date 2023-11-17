@@ -1,7 +1,13 @@
 PODS:
   - Capacitor (5.5.0):
     - CapacitorCordova
+  - CapacitorAppLauncher (5.0.6):
+    - Capacitor
   - CapacitorCordova (5.5.0)
+  - CapacitorDialog (5.0.6):
+    - Capacitor
+  - CapacitorGeolocation (5.0.6):
+    - Capacitor
   - CapacitorPreferences (5.0.6):
     - Capacitor
   - CapacitorSplashScreen (5.0.6):
@@ -9,15 +15,24 @@ PODS:
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorAppLauncher (from `../../node_modules/@capacitor/app-launcher`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorDialog (from `../../node_modules/@capacitor/dialog`)"
+  - "CapacitorGeolocation (from `../../node_modules/@capacitor/geolocation`)"
   - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
   - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
 
 EXTERNAL SOURCES:
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorAppLauncher:
+    :path: "../../node_modules/@capacitor/app-launcher"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorDialog:
+    :path: "../../node_modules/@capacitor/dialog"
+  CapacitorGeolocation:
+    :path: "../../node_modules/@capacitor/geolocation"
   CapacitorPreferences:
     :path: "../../node_modules/@capacitor/preferences"
   CapacitorSplashScreen:
@@ -25,10 +40,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Capacitor: 57890b363df14d5d2d5d8461aa23e886cb34da2a
+  CapacitorAppLauncher: 5a9f06c13c6b4f5d65b550a07128ef04f3a216b3
   CapacitorCordova: 3d3908a3d208a11a75f9df3b18c4405c4de76e1d
+  CapacitorDialog: 0f3c15dfe9414b83bc64aef4078f1b92bcfead26
+  CapacitorGeolocation: 7be5f77abc205c0efe319fff8587a7183e7b0240
   CapacitorPreferences: f03954bcb0ff09c792909e46bff88e3183c16b10
   CapacitorSplashScreen: 5fa2ab5e46cf5cc530cf16a51c80c7a986579ccd
 
-PODFILE CHECKSUM: d8c231129f3bb3fbea57b1e13bea65b6196ebbfd
+PODFILE CHECKSUM: 2d0c47b1d9e2d5af20e4ab8c21f39c067d8e576c
 
 COCOAPODS: 1.12.1

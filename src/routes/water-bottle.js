@@ -63,13 +63,17 @@ customElements.define('page-water-bottle', class extends HTMLElement {
 </ion-content>`;
 
     this.$html = document.documentElement;
-    this._onLanguageChange = () => Translator.translatePage(this, 'water-bottle');
 
     this._onLanguageChange();
+
     this.$html.addEventListener('languageChange', this._onLanguageChange);
   }
 
   disconnectedCallback() {
     this.$html.removeEventListener('languageChange', this._onLanguageChange);
+  }
+
+  _onLanguageChange = () => {
+    Translator.translatePage(this, 'water-bottle');
   }
 });
