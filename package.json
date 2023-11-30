@@ -2,8 +2,8 @@
   "type": "module",
   "scripts": {
     "assets": "capacitor-assets generate --iconBackgroundColor '#4259f2' --iconBackgroundColorDark '#4259f2' --splashBackgroundColor '#4259f2' --splashBackgroundColorDark '#4259f2' --logoSplashScale 0.1 --ios --android",
-    "dev": "concurrently \"rollup -c -w\" \"sass --no-source-map -w src/index.scss src/index.min.css\"",
-    "build": "NODE_ENV=production rollup -c && sass --no-source-map -s compressed src/index.scss src/index.min.css",
+    "dev": "concurrently \"rollup -c -w\" \"sass --no-source-map -w src/index.scss dist/index.min.css\"",
+    "build": "NODE_ENV=production rollup -c && sass --no-source-map -s compressed src/index.scss dist/index.min.css",
     "sync": "npm run build && cap sync",
     "open:android": "cap open android",
     "open:ios": "cap open ios",
@@ -16,6 +16,7 @@
     "@capacitor/assets": "^3.0.1",
     "@capacitor/cli": "^5.5.0",
     "@capacitor/core": "^5.5.0",
+    "@capacitor/device": "^5.0.6",
     "@capacitor/dialog": "^5.0.6",
     "@capacitor/geolocation": "^5.0.6",
     "@capacitor/ios": "^5.5.0",
@@ -27,6 +28,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
     "maplibre-gl": "^3.6.0",
     "rollup": "^4.3.0",
     "sass": "^1.69.5"

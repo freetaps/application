@@ -2,6 +2,8 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import Translator from './i18n/i18n';
 
 import './components/map';
+import './components/map-cluster';
+import './components/map-water-point';
 import './components/menu-footer';
 
 import './routes/about';

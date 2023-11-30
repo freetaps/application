@@ -38,6 +38,10 @@
     },
     "locale": {
       "AttributionControl.ToggleAttribution": "Afficher les droits d'auteur"
+    },
+    "waterPoints": {
+      "fetchErrorMessage": "Impossible de charger les points d'eau, le serveur a retourné l'erreur suivante : ",
+      "fetchErrorTitle": "Erreur de chargement"
     }
   },
   "water-bottle": {

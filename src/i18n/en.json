@@ -38,6 +38,10 @@
     },
     "locale": {
       "AttributionControl.ToggleAttribution": "Show copyright"
+    },
+    "waterPoints": {
+      "fetchErrorMessage": "Unable to load water points, the server returned the following error: ",
+      "fetchErrorTitle": "Loading error"
     }
   },
   "water-bottle": {

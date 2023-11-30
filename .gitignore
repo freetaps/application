@@ -1,2 +1,4 @@
 .DS_Store
+.env
+dist/config.json
 node_modules
