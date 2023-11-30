@@ -12,6 +12,16 @@ async function promptSettings() {
   return value;
 }
 
+export async function hasGeolocationPermission() {
+  try {
+    const permissions = await Geolocation.checkPermissions();
+
+    return permissions.location === 'granted';
+  } catch (error) {
+    return false;
+  }
+}
+
 export async function getCurrentPosition() {
   try {
     if (isPlatform('cordova')) {

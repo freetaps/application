@@ -1,5 +1,5 @@
 import { AttributionControl, LngLat, LngLatBounds, Map, ScaleControl } from 'maplibre-gl';
-import { getCurrentPosition } from '../utils/geolocation';
+import { getCurrentPosition, hasGeolocationPermission } from '../utils/geolocation';
 import { fetchWaterPoints } from '../utils/water-points';
 import MarkerHandler from '../utils/markers';
 import Translator from '../i18n/i18n';
@@ -43,7 +43,6 @@ customElements.define('app-map', class extends HTMLElement {
 
   $geolocationAccuracyMarker = MarkerHandler.createGeolocationAccuracyMarker();
   $geolocationMarker = MarkerHandler.createGeolocationMarker();
-  $isGeolocationError = false;
   $loading = 0;
 
   connectedCallback() {
@@ -64,6 +63,10 @@ customElements.define('app-map', class extends HTMLElement {
   }
   .maplibregl-ctrl-bottom-left {
     left: var(--ion-safe-area-left, 0);
+  }
+
+  .maplibregl-user-location-dot, maplibregl-user-location-accuracy-circle {
+    z-index: 1;
   }
 
   ion-progress-bar {
@@ -111,14 +114,14 @@ customElements.define('app-map', class extends HTMLElement {
 
     this.$observer.observe(this.$mapContainer);
     this.$rotationButton.addEventListener('click', this._onRotationButtonClick);
-    this.$geolocationButton.addEventListener('click', this._onGeolocationButtonClick);
+    this.$geolocationButton.addEventListener('click', this._geolocate);
   }
 
   disconnectedCallback() {
     this.$markerHandler.clear();
     this.$observer.disconnect();
     this.$rotationButton.removeEventListener('click', this._onRotationButtonClick);
-    this.$geolocationButton.removeEventListener('click', this._onGeolocationButtonClick)
+    this.$geolocationButton.removeEventListener('click', this._geolocate)
     this.$map.off('data', this._onData);
     this.$map.off('load', this._onMapLoad);
     this.$map.off('move', this.$markerHandler.updateMarkers);
@@ -126,20 +129,10 @@ customElements.define('app-map', class extends HTMLElement {
     this.$map.off('zoom', this._updateGeolocationAccuracyMarker);
   }
 
-  _onData = ({ isSourceLoaded, sourceId }) => {
-    if (sourceId === 'water-points' && isSourceLoaded) {
-      this.$markerHandler.updateMarkers();
-      this.$map.off('data', this._onData);
-      this.$map.on('move', this.$markerHandler.updateMarkers);
-    }
-  };
-
   /**
    * Inspired from https://github.com/maplibre/maplibre-gl-js/blob/main/src/ui/control/geolocate_control.ts
    */
-  _onGeolocationButtonClick = async () => {
-    this.$isGeolocationError = false;
-
+  _geolocate = async () => {
     this._updateProgressBar(true);
     this._updateGeolocationButton();
 
@@ -158,32 +151,20 @@ customElements.define('app-map', class extends HTMLElement {
       }
 
       this._updateGeolocationAccuracyMarker();
-      this._updateCamera(previousPosition);
-    } else {
-      this.$isGeolocationError = true;
-
-      if (previousPosition) {
-        this.$geolocationAccuracyMarker.remove();
-        this.$geolocationMarker.remove();
-      }
+      this._updateCamera();
+    } else if (previousPosition) {
+      this.$geolocationAccuracyMarker.remove();
+      this.$geolocationMarker.remove();
     }
 
     this._updateProgressBar(false);
     this._updateGeolocationButton();
   }
 
-  _onMapLoad = async () => {
-    this._updateGeolocationButton();
-    this._updateRotationButton();
-
-    this.$map.on('rotate', this._updateRotationButton);
-    this.$map.on('zoom', this._updateGeolocationAccuracyMarker);
-
+  async _loadWaterPoints() {
     this._updateProgressBar(true);
 
     const waterPoints = await fetchWaterPoints();
-
-    this._updateProgressBar(false);
 
     if (waterPoints) {
       this.$map.on('data', this._onData);
@@ -201,6 +182,30 @@ customElements.define('app-map', class extends HTMLElement {
         filter: ['!=', 'cluster', true]
       });
     }
+
+    this._updateProgressBar(false);
+  }
+
+  _onData = ({ isSourceLoaded, sourceId }) => {
+    if (sourceId === 'water-points' && isSourceLoaded) {
+      this.$markerHandler.updateMarkers();
+      this.$map.off('data', this._onData);
+      this.$map.on('move', this.$markerHandler.updateMarkers);
+    }
+  };
+
+  _onMapLoad = async () => {
+    this._updateGeolocationButton();
+    this._updateRotationButton();
+
+    this.$map.on('rotate', this._updateRotationButton);
+    this.$map.on('zoom', this._updateGeolocationAccuracyMarker);
+
+    if (await hasGeolocationPermission()) {
+      this._geolocate();
+    }
+
+    await this._loadWaterPoints();
   }
 
   _onRotationButtonClick = () => {
@@ -226,24 +231,18 @@ customElements.define('app-map', class extends HTMLElement {
     this.$map.addControl(new ScaleControl(), 'bottom-left');
   }
 
-  _updateCamera(previousPosition) {
-    const isOutOfView = !this.$map.getBounds().contains(
-      new LngLat(this.$position.coords.longitude, this.$position.coords.latitude)
+  _updateCamera() {
+    this.$map.fitBounds(
+      LngLatBounds.fromLngLat(
+        new LngLat(this.$position.coords.longitude, this.$position.coords.latitude),
+        this.$position.coords.accuracy
+      ),
+      {
+        bearing: this.$map.getBearing(),
+        speed: 4,
+        zoom: 12
+      }
     );
-
-    if (!previousPosition || isOutOfView) {
-      this.$map.fitBounds(
-        LngLatBounds.fromLngLat(
-          new LngLat(this.$position.coords.longitude, this.$position.coords.latitude),
-          this.$position.coords.accuracy
-        ),
-        {
-          bearing: this.$map.getBearing(),
-          maxZoom: 12,
-          speed: 4
-        }
-      );
-    }
   };
 
   _updateGeolocationAccuracyMarker = () => {
@@ -262,15 +261,7 @@ customElements.define('app-map', class extends HTMLElement {
   _updateGeolocationButton() {
     if (this.$isGeolocationLoading) {
       this.$geolocationButton.setAttribute('disabled', '');
-    } else if (this.$isGeolocationError) {
-      this.$progressBar.style.display = 'none';
-      this.$geolocationButton.removeAttribute('disabled');
-      this.$geolocationButton.setAttribute('color', 'light');
-      this.$geolocationButtonIcon.setAttribute('color', 'danger');
     } else {
-      this.$geolocationButton.setAttribute('color', 'primary');
-      this.$geolocationButtonIcon.setAttribute('color', 'light');
-
       if (this.$map) {
         this.$geolocationButton.removeAttribute('disabled');
       } else {
