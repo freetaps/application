@@ -45,6 +45,6 @@ Simply open [`src/index.html`](./src/index.html) in your browser and start worki
 
 ## License
 
-Made with [Ionic Framework](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/).
+Made with [Ionic Framework](https://ionicframework.com/), [Capacitor](https://capacitorjs.com/) and [MapLibre](https://maplibre.org/) (using [OpenStreetMap](https://www.openstreetmap.org/about)).
 
 Source code provided under the [CC-BY-SA-4.0 license](https://github.com/tseignette/gallery/blob/main/LICENSE).

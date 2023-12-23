@@ -3,7 +3,7 @@
     "freetaps-text-1": "FreeTaps is an association founded in 2011 whose mission is to list drinking water points on a free, collaborative maps throughout France, Europe and worldwide.",
     "freetaps-text-2": "The application is constantly being enriched by towns and individuals adding data: over 17000 water points are already available!",
     "freetaps-text-3": "If you are a local authority or a player in the water sector who would like to reference water points, contact us!",
-    "freetaps-text-4": "FreeTaps was created by the founders of Gobi.",
+    "freetaps-text-4": "FreeTaps was created by the founders of Gobi. Source code is available at this address: <a href=\"https://github.com/freetaps/application\">https://github.com/freetaps/application</a>.",
     "freetaps-title": "FreeTaps",
     "header-back": "Back",
     "header-title": "About",
@@ -29,7 +29,7 @@
     "tabs-add": "Add a water point",
     "tabs-favorites": "Favorites",
     "tabs-menu": "Menu",
-    "waterPointButton": "Open the water point card"
+    "waterPointButton": "Open water point card"
   },
   "map": {
     "geolocationSettingsPrompt": {
