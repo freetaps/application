@@ -7,11 +7,11 @@ customElements.define('component-menu-footer', class extends HTMLElement {
   <ion-toolbar>
     <ion-segment value="${document.documentElement.lang}">
       <ion-segment-button lang="fr" value="fr">
-        <ion-label><span aria-hidden="true">🇫🇷 </span>Français</ion-label>
+        <ion-label>Français</ion-label>
       </ion-segment-button>
 
       <ion-segment-button lang="en" value="en">
-        <ion-label><span aria-hidden="true">🇬🇧 </span>English</ion-label>
+        <ion-label>English</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-footer>
