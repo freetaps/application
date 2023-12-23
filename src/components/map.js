@@ -8,7 +8,7 @@ customElements.define('component-map', class extends HTMLElement {
   /**
    * @type import('maplibre-gl').MapOptions
    */
-  static $mapOptions = {
+  static mapOptions = {
     bounds: [-5.4534286, 41.2632185, 9.8678344, 51.268318], // France
     maxPitch: 0,
     maxZoom: 20,
@@ -34,11 +34,11 @@ customElements.define('component-map', class extends HTMLElement {
   /**
    * @type import('maplibre-gl').SourceSpecification
    */
-  static $sourceOptions = {
+  static sourceOptions = {
     type: 'geojson',
     cluster: true,
-    clusterMaxZoom: this.$mapOptions.maxZoom - 2,
-    clusterRadius: 80
+    clusterMaxZoom: this.mapOptions.maxZoom - 5,
+    clusterRadius: 60
   };
 
   $geolocationAccuracyMarker = MarkerHandler.createGeolocationAccuracyMarker();
@@ -171,7 +171,7 @@ customElements.define('component-map', class extends HTMLElement {
       this.$map.addSource(
         'water-points',
         {
-          ...this.constructor.$sourceOptions,
+          ...this.constructor.sourceOptions,
           data: waterPoints
         }
       );
@@ -220,7 +220,7 @@ customElements.define('component-map', class extends HTMLElement {
    */
   _setupMap() {
     this.$map = new Map({
-      ...this.constructor.$mapOptions,
+      ...this.constructor.mapOptions,
       container: this.$mapContainer,
       locale: Translator.getTranslation('map').locale
     });
