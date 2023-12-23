@@ -3,8 +3,18 @@ import Translator from '../i18n/i18n';
 customElements.define('page-home', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
+<style>
+  ion-modal {
+    --height: auto;
+  }
+</style>
+
 <ion-content id="home-content" scroll-x="false" scroll-y="false">
-  <app-map></app-map>
+  <component-map></component-map>
+
+  <ion-modal initial-breakpoint="1" backdrop-breakpoint="1">
+    <component-water-point-record></component-water-point-record>
+  </ion-modal>
 </ion-content>
 
 <ion-tab-bar>
@@ -57,25 +67,32 @@ customElements.define('page-home', class extends HTMLElement {
     </ion-list>
   </ion-content>
 
-  <app-menu-footer></app-menu-footer>
+  <component-menu-footer></component-menu-footer>
 </ion-menu>`;
 
     this.$html = document.documentElement;
     this.$menu = document.getElementById('home-menu');
     this.$menuCloseButton = document.getElementById('home-menu-close-button');
     this.$menuOpenButton = document.getElementById('home-tabs-menu-button');
+    this.$waterPointModal = this.querySelector('ion-modal');
+    this.$waterPointModal.breakpoints = [0, 1];
+    this.$waterPointModalContent = this.$waterPointModal.querySelector('component-water-point-record');
 
     this._onLanguageChange();
 
+    this.addEventListener('waterPointClick', this._onWaterPointClick);
     this.$html.addEventListener('languageChange', this._onLanguageChange);
     this.$menuCloseButton.addEventListener('click', this._onMenuClose);
     this.$menuOpenButton.addEventListener('click', this._onMenuOpen);
+    this.$waterPointModal.addEventListener('didDismiss', this._onWaterPointModalDismiss);
   }
 
   disconnectedCallback() {
+    this.removeEventListener('waterPointClick', this._onWaterPointClick);
     this.$html.removeEventListener('languageChange', this._onLanguageChange);
     this.$menuCloseButton.removeEventListener('click', this._onMenuClose);
     this.$menuOpenButton.removeEventListener('click', this._onMenuOpen);
+    this.$waterPointModal.removeEventListener('didDismiss', this._onWaterPointModalDismiss);
   }
 
   _onLanguageChange = () => {
@@ -88,5 +105,26 @@ customElements.define('page-home', class extends HTMLElement {
 
   _onMenuOpen = () => {
     this.$menu.open();
+  }
+
+  _onWaterPointClick = (event) => {
+    if (this.currentWaterPoint) {
+      this.currentWaterPoint.setCurrent(false);
+    }
+
+    this.currentWaterPoint = event.target;
+    this.$waterPointModal.isOpen = true
+
+    this.currentWaterPoint.setCurrent(true);
+    this.$waterPointModalContent.setFeature(event.detail);
+  }
+
+  _onWaterPointModalDismiss = () => {
+    if (this.currentWaterPoint) {
+      this.currentWaterPoint.setCurrent(false);
+    }
+
+    this.currentWaterPoint = null;
+    this.$waterPointModal.isOpen = false;
   }
 });

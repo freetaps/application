@@ -4,7 +4,7 @@ import { fetchWaterPoints } from '../utils/water-points';
 import MarkerHandler from '../utils/markers';
 import Translator from '../i18n/i18n';
 
-customElements.define('app-map', class extends HTMLElement {
+customElements.define('component-map', class extends HTMLElement {
   /**
    * @type import('maplibre-gl').MapOptions
    */
@@ -43,7 +43,7 @@ customElements.define('app-map', class extends HTMLElement {
 
   $geolocationAccuracyMarker = MarkerHandler.createGeolocationAccuracyMarker();
   $geolocationMarker = MarkerHandler.createGeolocationMarker();
-  $loading = 0;
+  loading = 0;
 
   connectedCallback() {
     this.innerHTML = `
@@ -98,7 +98,7 @@ customElements.define('app-map', class extends HTMLElement {
     this.$rotationButton = document.getElementById('rotation-button');
     this.$progressBar = this.querySelector('ion-progress-bar');
     this.$mapContainer = document.getElementById('map');
-    this.$observer = new ResizeObserver((mutationList, observer) => {
+    this.observer = new ResizeObserver((mutationList, observer) => {
       for (const mutation of mutationList) {
         if (mutation.contentRect.height > 0) {
           this._setupMap();
@@ -109,17 +109,17 @@ customElements.define('app-map', class extends HTMLElement {
     });
 
     this._updateProgressBar();
-    this._updateGeolocationButton();
+    this._updateGeolocationButton(false);
     this._updateRotationButton();
 
-    this.$observer.observe(this.$mapContainer);
+    this.observer.observe(this.$mapContainer);
     this.$rotationButton.addEventListener('click', this._onRotationButtonClick);
     this.$geolocationButton.addEventListener('click', this._geolocate);
   }
 
   disconnectedCallback() {
     this.$markerHandler.clear();
-    this.$observer.disconnect();
+    this.observer.disconnect();
     this.$rotationButton.removeEventListener('click', this._onRotationButtonClick);
     this.$geolocationButton.removeEventListener('click', this._geolocate)
     this.$map.off('data', this._onData);
@@ -134,13 +134,13 @@ customElements.define('app-map', class extends HTMLElement {
    */
   _geolocate = async () => {
     this._updateProgressBar(true);
-    this._updateGeolocationButton();
+    this._updateGeolocationButton(true);
 
-    const previousPosition = this.$position;
-    this.$position = await getCurrentPosition();
+    const previousPosition = this.position;
+    this.position = await getCurrentPosition();
 
-    if (this.$position) {
-      const center = new LngLat(this.$position.coords.longitude, this.$position.coords.latitude);
+    if (this.position) {
+      const center = new LngLat(this.position.coords.longitude, this.position.coords.latitude);
 
       this.$geolocationAccuracyMarker.setLngLat(center);
       this.$geolocationMarker.setLngLat(center);
@@ -158,7 +158,7 @@ customElements.define('app-map', class extends HTMLElement {
     }
 
     this._updateProgressBar(false);
-    this._updateGeolocationButton();
+    this._updateGeolocationButton(false);
   }
 
   async _loadWaterPoints() {
@@ -195,7 +195,7 @@ customElements.define('app-map', class extends HTMLElement {
   };
 
   _onMapLoad = async () => {
-    this._updateGeolocationButton();
+    this._updateGeolocationButton(false);
     this._updateRotationButton();
 
     this.$map.on('rotate', this._updateRotationButton);
@@ -234,8 +234,8 @@ customElements.define('app-map', class extends HTMLElement {
   _updateCamera() {
     this.$map.fitBounds(
       LngLatBounds.fromLngLat(
-        new LngLat(this.$position.coords.longitude, this.$position.coords.latitude),
-        this.$position.coords.accuracy
+        new LngLat(this.position.coords.longitude, this.position.coords.latitude),
+        this.position.coords.accuracy
       ),
       {
         bearing: this.$map.getBearing(),
@@ -246,20 +246,20 @@ customElements.define('app-map', class extends HTMLElement {
   };
 
   _updateGeolocationAccuracyMarker = () => {
-    if (this.$position) {
+    if (this.position) {
       const bounds = this.$map.getBounds();
       const element = this.$geolocationAccuracyMarker.getElement();
       const mapHeightInMeters = bounds.getSouthEast().distanceTo(bounds.getNorthEast());
       const mapHeightInPixels = this.$mapContainer.clientHeight;
-      const circleDiameterInPixels = Math.ceil(2 * (this.$position.coords.accuracy / (mapHeightInMeters / mapHeightInPixels)));
+      const circleDiameterInPixels = Math.ceil(2 * (this.position.coords.accuracy / (mapHeightInMeters / mapHeightInPixels)));
 
       element.style.width = `${circleDiameterInPixels}px`;
       element.style.height = `${circleDiameterInPixels}px`;
     }
   }
 
-  _updateGeolocationButton() {
-    if (this.$isGeolocationLoading) {
+  _updateGeolocationButton(isGeolocationLoading) {
+    if (isGeolocationLoading) {
       this.$geolocationButton.setAttribute('disabled', '');
     } else {
       if (this.$map) {
@@ -272,12 +272,12 @@ customElements.define('app-map', class extends HTMLElement {
 
   _updateProgressBar(isLoading) {
     if (isLoading === true) {
-      this.$loading++;
+      this.loading++;
     } else if (isLoading === false) {
-      this.$loading--;
+      this.loading--;
     }
 
-    if (this.$loading > 0) {
+    if (this.loading > 0) {
       this.$progressBar.style.display = 'initial';
     } else {
       this.$progressBar.style.display = 'none';

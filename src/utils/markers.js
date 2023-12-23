@@ -4,15 +4,15 @@ import { Marker } from 'maplibre-gl';
  * Inspired from https://maplibre.org/maplibre-gl-js/docs/examples/cluster-html/
  */
 export default class MarkerHandler {
-  $isAnimating = false;
+  isAnimating = false;
   /**
    * @type {{ [markerId: string]: import('maplibre-gl').Marker }}
    */
-  $markersCache = { };
+  markersCache = { };
   /**
    * @type {{ [markerId: string]: import('maplibre-gl').Marker }}
    */
-  $markersOnScreen = { };
+  markersOnScreen = { };
 
   /**
    * @param {import('maplibre-gl').Map} map
@@ -22,56 +22,53 @@ export default class MarkerHandler {
   }
 
   static createGeolocationAccuracyMarker() {
-    const element = document.createElement('div');
+    const $element = document.createElement('div');
 
-    element.className = 'maplibregl-user-location-accuracy-circle';
+    $element.className = 'maplibregl-user-location-accuracy-circle';
 
-    return new Marker({ element });
+    return new Marker({ element: $element });
   }
 
   static createGeolocationMarker() {
-    const element = document.createElement('div');
+    const $element = document.createElement('div');
 
-    element.className = 'maplibregl-user-location-dot';
+    $element.className = 'maplibregl-user-location-dot';
 
-    return new Marker({ element });
+    return new Marker({ element: $element });
   }
 
   clear() {
-    cancelAnimationFrame(this.$animationHandle);
+    cancelAnimationFrame(this.animationHandle);
   }
 
   updateMarkers = () => {
-    if (this.$isAnimating) {
+    if (this.isAnimating) {
       return
     }
 
-    this.$isAnimating = true;
-    this.$animationHandle = requestAnimationFrame(() => {
+    this.isAnimating = true;
+    this.animationHandle = requestAnimationFrame(() => {
       this._updateMarkers();
-      this.$isAnimating = false;
+      this.isAnimating = false;
     });
   }
 
   _updateMarkers = () => {
     const features = this.$map.querySourceFeatures('water-points');
-    const previousMarkersOnScreen = this.$markersOnScreen;
+    const previousMarkersOnScreen = this.markersOnScreen;
     const nextMarkersOnScreen = { };
 
     for (const feature of features) {
-      const id = feature.properties.cluster
-        ? feature.properties.cluster_id
-        : feature.properties.id;
       const markerId = feature.properties.cluster
-        ? `cluster-${id}`
-        : `water-point-${id}`;
-      const marker = this._createMarker(markerId, feature);
+        ? `cluster-${feature.properties.cluster_id}`
+        : `water-point-${feature.properties.id}`;
+      const $marker = this._createMarker(markerId, feature);
 
-      nextMarkersOnScreen[markerId] = marker;
+      nextMarkersOnScreen[markerId] = $marker;
 
       // Add marker on map if it was not on screen
       if (!previousMarkersOnScreen[markerId]) {
-        marker.addTo(this.$map);
+        $marker.addTo(this.$map);
       }
     }
 
@@ -80,16 +77,16 @@ export default class MarkerHandler {
       if (!nextMarkersOnScreen[markerId]) previousMarkersOnScreen[markerId].remove();
     }
 
-    this.$markersOnScreen = nextMarkersOnScreen;
+    this.markersOnScreen = nextMarkersOnScreen;
   }
 
-  _createClusterElement(count) {
-    const element = document.createElement('app-map-cluster');
+  _createClusterElement(feature) {
+    const $element = document.createElement('component-map-cluster');
 
-    element.setAttribute('count', count);
-    element.innerHTML = `<ion-text color="dark"><strong>${count.toLocaleString()}</strong></ion-text>`;
+    $element.setFeature(feature);
+    $element.innerHTML = `<ion-text color="dark"><strong>${feature.properties.point_count.toLocaleString()}</strong></ion-text>`;
 
-    return element;
+    return $element;
   }
 
   /**
@@ -98,19 +95,23 @@ export default class MarkerHandler {
    * @param {import('maplibre-gl').MapGeoJSONFeature} feature
    * @returns {import('maplibre-gl').Marker}
    */
-  _createMarker(markerId, { geometry, properties }) {
-    if (this.$markersCache[markerId]) {
-      return this.$markersCache[markerId];
+  _createMarker(markerId, feature) {
+    if (this.markersCache[markerId]) {
+      return this.markersCache[markerId];
     }
 
-    const element = properties.cluster
-      ? this._createClusterElement(properties.point_count)
-      : this._createWaterPointElement();
+    const $element = feature.properties.cluster
+      ? this._createClusterElement(feature)
+      : this._createWaterPointElement(feature);
 
-    return this.$markersCache[markerId] = new Marker({ element }).setLngLat(geometry.coordinates);
+    return this.markersCache[markerId] = new Marker({ element: $element }).setLngLat(feature.geometry.coordinates);
   }
 
-  _createWaterPointElement() {
-    return document.createElement('app-map-water-point');
+  _createWaterPointElement(feature) {
+    const $element = document.createElement('component-map-water-point');
+
+    $element.setFeature(feature);
+
+    return $element;
   }
 }

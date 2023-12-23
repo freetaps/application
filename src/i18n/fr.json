@@ -25,9 +25,11 @@
     "menu-close": "Fermer",
     "menu-favorites": "Favoris",
     "menu-water-bottle": "Bien laver sa gourde",
+    "position-link": "S'y rendre",
     "tabs-add": "Ajouter un point",
     "tabs-favorites": "Favoris",
-    "tabs-menu": "Menu"
+    "tabs-menu": "Menu",
+    "waterPointButton": "Ouvrir la fiche du point d'eau"
   },
   "map": {
     "geolocationSettingsPrompt": {
@@ -38,6 +40,14 @@
     },
     "locale": {
       "AttributionControl.ToggleAttribution": "Afficher les droits d'auteur"
+    },
+    "waterPoint": {
+      "defaultTitle": "Fontaine",
+      "use": {
+        "0": "Personne n'a utilisé ce point d'eau.",
+        "1": "1 personne a utilisé ce point d'eau.",
+        "multiple": " personnes ont utilisé ce point d'eau."
+      }
     },
     "waterPoints": {
       "fetchErrorMessage": "Impossible de charger les points d'eau, le serveur a retourné l'erreur suivante : ",

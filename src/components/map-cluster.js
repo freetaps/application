@@ -9,6 +9,7 @@ template.innerHTML = `
       border-radius: 50%;
       display: flex;
       justify-content: center;
+      opacity: 0.9;
       pointer-events: none;
     }
   </style>
@@ -17,8 +18,7 @@ template.innerHTML = `
 `;
 
 // TODO: improve a11y
-// TODO: use shadow DOM everywhere
-customElements.define('app-map-cluster', class extends HTMLElement {
+customElements.define('component-map-cluster', class extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' }).appendChild(
@@ -27,10 +27,15 @@ customElements.define('app-map-cluster', class extends HTMLElement {
   }
 
   connectedCallback() {
-    const count = parseInt(this.getAttribute('count'), 10);
-    const [fontSize, size] = this._computeSizes(count);
-
     this.classList.add('ion-color-light');
+  }
+
+  /**
+   * @param {import('maplibre-gl').MapGeoJSONFeature} feature
+   */
+  setFeature(feature) {
+    const [fontSize, size] = this._computeSizes(feature.properties.point_count);
+
     this.style.fontSize = `${fontSize}px`;
     this.style.height = `${size}px`;
     this.style.width = `${size}px`;

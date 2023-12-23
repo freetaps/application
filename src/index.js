@@ -5,6 +5,7 @@ import './components/map';
 import './components/map-cluster';
 import './components/map-water-point';
 import './components/menu-footer';
+import './components/water-point-record';
 
 import './routes/about';
 import './routes/home';

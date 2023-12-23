@@ -25,9 +25,11 @@
     "menu-close": "Close",
     "menu-favorites": "Favorites",
     "menu-water-bottle": "Washing your water bottle",
+    "position-link": "Get there",
     "tabs-add": "Add a water point",
     "tabs-favorites": "Favorites",
-    "tabs-menu": "Menu"
+    "tabs-menu": "Menu",
+    "waterPointButton": "Open the water point card"
   },
   "map": {
     "geolocationSettingsPrompt": {
@@ -38,6 +40,14 @@
     },
     "locale": {
       "AttributionControl.ToggleAttribution": "Show copyright"
+    },
+    "waterPoint": {
+      "defaultTitle": "Fountain",
+      "use": {
+        "0": "No one used this water point.",
+        "1": "1 person used this water point.",
+        "multiple": " people used this water point."
+      }
     },
     "waterPoints": {
       "fetchErrorMessage": "Unable to load water points, the server returned the following error: ",

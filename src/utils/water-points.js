@@ -4,9 +4,11 @@ import config from '../../dist/config.json';
 import Translator from '../i18n/i18n';
 
 async function alertError(message) {
+  const translation = Translator.getTranslation('map').waterPoints;
+
   return Dialog.alert({
-    message: `${Translator.getTranslation('map').waterPoints.fetchErrorMessage}${message}`,
-    title: Translator.getTranslation('map').waterPoints.fetchErrorTitle
+    message: `${translation.fetchErrorMessage}${message}`,
+    title: translation.fetchErrorTitle
   });
 }
 

@@ -1,6 +1,6 @@
 import Translator from '../i18n/i18n';
 
-customElements.define('app-menu-footer', class extends HTMLElement {
+customElements.define('component-menu-footer', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 <ion-footer>

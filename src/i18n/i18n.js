@@ -34,6 +34,14 @@ const Translator = new class {
     });
   }
 
+  translateElementAttribute($element, elementName) {
+    this._translateElementAttribute(
+      $element,
+      elementName,
+      this.getTranslation(elementName)
+    );
+  }
+
   translatePage($page, pageName) {
     const pageTranslation = this.getTranslation(pageName);
 
@@ -49,16 +57,20 @@ const Translator = new class {
     });
 
     $page.querySelectorAll('[data-i18n-attr]').forEach(($element) => {
-      const attr = $element.dataset.i18nAttr;
-      const key = $element.dataset.i18nAttrKey;
-      const translation = pageTranslation?.[key];
-
-      if (translation) {
-        $element.setAttribute(attr, translation);
-      } else {
-        console.error(`Could not find translation for: ${pageName} ${key}`);
-      }
+      this._translateElementAttribute($element, pageName, pageTranslation);
     });
+  }
+
+  _translateElementAttribute($element, elementName, elementTranslation) {
+    const attr = $element.dataset.i18nAttr;
+    const key = $element.dataset.i18nAttrKey;
+    const translation = elementTranslation?.[key];
+
+    if (translation) {
+      $element.setAttribute(attr, translation);
+    } else {
+      console.error(`Could not find translation for: ${elementName} ${key}`);
+    }
   }
 }
 
