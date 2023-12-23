@@ -21,25 +21,29 @@ customElements.define('component-water-point-record', class extends HTMLElement 
   </ion-list>
 </div>`;
 
-    this.translation = Translator.getTranslation('map').waterPoint;
+    this.$html = document.documentElement;
     this.$positionText = this.querySelector('.water-point-position');
     this.$positionLink = this.querySelector('.water-point-position-link');
     this.$title = this.querySelector('.water-point-title');
     this.$useText = this.querySelector('.water-point-use');
   }
 
+  connectedCallback() {
+    this._onLanguageChange();
+    this.$html.addEventListener('languageChange', this._onLanguageChange);
+  }
+
+  disconnectedCallback() {
+    this.$html.removeEventListener('languageChange', this._onLanguageChange);
+  }
+
   /**
    * @param {import('maplibre-gl').MapGeoJSONFeature} feature
    */
   setFeature(feature) {
-    const [longitude, latitude] = feature.geometry.coordinates;
+    this.feature = feature;
 
-    this.$title.innerText = feature.properties.type === 'PRIVATE'
-      ? feature.properties.source
-      : this.translation.defaultTitle;
-    this.$positionText.innerText = `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
-    this.$useText.innerText = this._computeUseText(feature.properties.nbOfUse);
-    this.$positionLink.href = `geo:${latitude},${longitude}?q=${latitude},${longitude}`;
+    this._updateText();
   }
 
   _computeUseText(nbOfUse) {
@@ -51,5 +55,24 @@ customElements.define('component-water-point-record', class extends HTMLElement 
     }
 
     return `${nbOfUse.toLocaleString()}${this.translation.use.multiple}`;
+  }
+
+  _onLanguageChange = () => {
+    this.translation = Translator.getTranslation('map').waterPoint;
+
+    this._updateText();
+  }
+
+  _updateText = () => {
+    if (this.feature) {
+      const [longitude, latitude] = this.feature.geometry.coordinates;
+
+      this.$title.innerText = this.feature.properties.type === 'PRIVATE'
+        ? this.feature.properties.source
+        : this.translation.defaultTitle;
+      this.$positionText.innerText = `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+      this.$useText.innerText = this._computeUseText(this.feature.properties.nbOfUse);
+      this.$positionLink.href = `geo:${latitude},${longitude}?q=${latitude},${longitude}`;
+    }
   }
 });
