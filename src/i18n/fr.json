@@ -17,6 +17,20 @@
     "terms-title": "Conditions d'utilisation",
     "title": "À propos"
   },
+  "add": {
+    "header-back": "Retour",
+    "header-title": "Ajouter un point",
+    "home-link": "Retour à l'accueil",
+    "text": "Cette fonctionnalité n'est pas encore disponible. Vous pouvez réinstaller l'ancienne version de FreeTaps ou surveiller les mises à jour.",
+    "title": "En cours de construction"
+  },
+  "favorites": {
+    "header-back": "Retour",
+    "header-title": "Favoris",
+    "home-link": "Retour à l'accueil",
+    "text": "Cette fonctionnalité n'est pas encore disponible. Vous pouvez réinstaller l'ancienne version de FreeTaps ou surveiller les mises à jour.",
+    "title": "En cours de construction"
+  },
   "home": {
     "mapGeolocationButton": "Me localiser",
     "mapRotationButton": "Réinitialiser l'orientation",

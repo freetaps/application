@@ -17,16 +17,30 @@
     "terms-title": "Conditions of use",
     "title": "About"
   },
+  "add": {
+    "header-back": "Back",
+    "header-title": "Add a point",
+    "home-link": "Go back home",
+    "text": "This feature is not available yet. You can reinstall the old version of FreeTaps or watch for updates.",
+    "title": "Under construction"
+  },
+  "favorites": {
+    "header-back": "Back",
+    "header-title": "Favorites",
+    "home-link": "Go back home",
+    "text": "This feature is not available yet. You can reinstall the old version of FreeTaps or watch for updates.",
+    "title": "Under construction"
+  },
   "home": {
     "mapGeolocationButton": "Locate me",
     "mapRotationButton": "Reset orientation",
     "menu-about": "About",
-    "menu-add": "Add a water point",
+    "menu-add": "Add a point",
     "menu-close": "Close",
     "menu-favorites": "Favorites",
     "menu-water-bottle": "Washing your water bottle",
     "position-link": "Get there",
-    "tabs-add": "Add a water point",
+    "tabs-add": "Add a point",
     "tabs-favorites": "Favorites",
     "tabs-menu": "Menu",
     "waterPointButton": "Open water point card"

@@ -3,12 +3,6 @@ import Translator from '../i18n/i18n';
 customElements.define('page-home', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-<style>
-  ion-modal {
-    --height: auto;
-  }
-</style>
-
 <ion-content id="home-content" scroll-x="false" scroll-y="false">
   <component-map></component-map>
 
@@ -18,12 +12,12 @@ customElements.define('page-home', class extends HTMLElement {
 </ion-content>
 
 <ion-tab-bar>
-  <ion-tab-button disabled>
+  <ion-tab-button href="#/add">
     <ion-icon aria-hidden="true" name="add"></ion-icon>
     <ion-label data-i18n="tabs-add"></ion-label>
   </ion-tab-button>
 
-  <ion-tab-button disabled>
+  <ion-tab-button href="#/favorites">
     <ion-icon aria-hidden="true" name="star"></ion-icon>
     <ion-label data-i18n="tabs-favorites"></ion-label>
   </ion-tab-button>
@@ -45,12 +39,12 @@ customElements.define('page-home', class extends HTMLElement {
 
   <ion-content>
     <ion-list>
-      <ion-item disabled>
+      <ion-item href="#/favorites">
         <ion-icon aria-hidden="true" name="star" slot="start"></ion-icon>
         <ion-label data-i18n="menu-favorites"></ion-label>
       </ion-item>
 
-      <ion-item disabled>
+      <ion-item href="#/add">
         <ion-icon aria-hidden="true" name="add" slot="start"></ion-icon>
         <ion-label data-i18n="menu-add"></ion-label>
       </ion-item>

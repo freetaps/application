@@ -47,36 +47,6 @@ customElements.define('component-map', class extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-<style>
-  #map {
-    height: 100%;
-  }
-
-  #rotation-button {
-    margin: 0;
-    margin-top: var(--ion-safe-area-top, 0);
-  }
-
-  .maplibregl-ctrl-top-left {
-    left: var(--ion-safe-area-left, 0);
-    top: var(--ion-safe-area-top, 0);
-  }
-  .maplibregl-ctrl-bottom-left {
-    left: var(--ion-safe-area-left, 0);
-  }
-
-  .maplibregl-user-location-dot, maplibregl-user-location-accuracy-circle {
-    z-index: 1;
-  }
-
-  ion-progress-bar {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    z-index: 1;
-  }
-</style>
-
 <ion-fab horizontal="end" vertical="top">
   <ion-fab-button color="light" data-i18n-attr="title" data-i18n-attr-key="mapRotationButton" size="small" id="rotation-button">
     <ion-icon aria-hidden="true" color="dark" size="small" name="navigate"></ion-icon>

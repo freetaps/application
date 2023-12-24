@@ -1,6 +1,6 @@
 import Translator from '../i18n/i18n';
 
-customElements.define('page-water-bottle', class extends HTMLElement {
+customElements.define('page-favorites', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 <ion-header>
@@ -15,28 +15,7 @@ customElements.define('page-water-bottle', class extends HTMLElement {
 
 <ion-content class="ion-padding">
   <div class="ion-content-safe-area">
-    <h1 data-i18n="title"></h1>
-    <p data-i18n="introduction-text"></p>
-
-    <h2 data-i18n="step-1-title"></h2>
-    <p data-i18n="step-1-text"></p>
-
-    <h2 data-i18n="step-2-title"></h2>
-    <p data-i18n="step-2-text-1"></p>
-    <p data-i18n="step-2-text-2"></p>
-
-    <h2 data-i18n="step-3-title"></h2>
-    <p data-i18n="step-3-text"></p>
-
-    <div class="youtube-iframe-wrapper">
-      <iframe
-        data-i18n-attr="title"
-        data-i18n-attr-key="video-title"
-        src="https://www.youtube-nocookie.com/embed/YrCS5cGjSaI?si=KMkbQhQC3u7oYPgK"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <component-work-in-progress></component-work-in-progress>
   </div>
 </ion-content>`;
 
@@ -52,6 +31,6 @@ customElements.define('page-water-bottle', class extends HTMLElement {
   }
 
   _onLanguageChange = () => {
-    Translator.translatePage(this, 'water-bottle');
+    Translator.translatePage(this, 'favorites');
   }
 });
