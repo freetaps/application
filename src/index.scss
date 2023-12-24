@@ -106,3 +106,17 @@ page-water-bottle {
     }
   }
 }
+
+page-home {
+  ion-menu {
+    ion-content::part(scroll) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    ion-button {
+      align-self: center;
+    }
+  }
+}

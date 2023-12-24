@@ -36,6 +36,8 @@
     "mapRotationButton": "Reset orientation",
     "menu-about": "About",
     "menu-add": "Add a point",
+    "menu-bug": "Report a bug",
+    "menu-bug-link": "mailto:samuel@eaupen.net?subject=Bug FreeTaps&body=Please tell us about the issue you are facing, trying to describe it as best as possible. If you can attach your phone model and a screenshot, that is even better!",
     "menu-close": "Close",
     "menu-favorites": "Favorites",
     "menu-water-bottle": "Washing your water bottle",

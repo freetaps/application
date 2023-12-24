@@ -54,11 +54,16 @@ customElements.define('page-home', class extends HTMLElement {
         <ion-label data-i18n="menu-water-bottle"></ion-label>
       </ion-item>
 
-      <ion-item href="#/about">
+      <ion-item href="#/about" lines="none">
         <ion-icon aria-hidden="true" name="information-circle-outline" slot="start"></ion-icon>
         <ion-label data-i18n="menu-about"></ion-label>
       </ion-item>
     </ion-list>
+
+    <ion-button data-i18n-attr="href" data-i18n-attr-key="menu-bug-link" fill="clear">
+      <span data-i18n="menu-bug"></span>
+      <ion-icon aria-hidden="true" name="bug-outline" slot="end"></ion-icon>
+    </ion-button>
   </ion-content>
 
   <component-menu-footer></component-menu-footer>
