@@ -15,7 +15,6 @@ customElements.define('page-water-bottle', class extends HTMLElement {
 
 <ion-content class="ion-padding">
   <div class="ion-content-safe-area">
-    <h1 data-i18n="title"></h1>
     <p data-i18n="introduction-text"></p>
 
     <h2 data-i18n="step-1-title"></h2>

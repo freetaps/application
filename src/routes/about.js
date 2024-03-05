@@ -15,12 +15,9 @@ customElements.define('page-about', class extends HTMLElement {
 
 <ion-content class="ion-padding">
   <div class="ion-content-safe-area">
-    <h1 data-i18n="title"></h1>
-
     <h2 data-i18n="terms-title"></h2>
     <p data-i18n="terms-text-1"></p>
     <p data-i18n="terms-text-2"></p>
-    <p data-i18n="terms-text-3"></p>
 
     <h2 data-i18n="freetaps-title"></h2>
     <p data-i18n="freetaps-text-1"></p>
@@ -32,6 +29,9 @@ customElements.define('page-about', class extends HTMLElement {
     <p data-i18n="gobi-text-1"></p>
     <p data-i18n="gobi-text-2"></p>
     <p data-i18n="gobi-text-3"></p>
+    <p data-i18n="gobi-text-4"></p>
+    <p data-i18n="gobi-text-5"></p>
+    <p data-i18n="gobi-text-6"></p>
   </div>
 </ion-content>`;
 

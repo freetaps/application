@@ -1,28 +1,43 @@
 {
   "about": {
-    "freetaps-text-1": "FreeTaps est une association fondée en 2011 dont la mission est de référencer les points d’eau potable sur une application gratuite, collaborative, partout en France, en Europe et dans le monde.",
-    "freetaps-text-2": "L’application s’enrichit constamment grâce aux villes et aux particuliers qui ajoutent des données : plus de 17000 points d’eau sont déjà disponibles !",
+    "freetaps-text-1": "Freetaps est une association fondée en 2011 dont la mission est de référencer les points d’eau potable partout dans le monde, sur une application gratuite et collaborative.",
+    "freetaps-text-2": "L’application s’enrichit constamment grâce aux villes et aux particuliers qui ajoutent des données : plus de 20 000 points d’eau sont déjà disponibles !",
     "freetaps-text-3": "Si vous êtes une collectivité ou un acteur de l’eau qui voulez référencer des points, contactez-nous !",
-    "freetaps-text-4": "FreeTaps a été créé par les fondateurs de Gobi. Le code source est disponible à cette adresse : <a href=\"https://github.com/freetaps/application\">https://github.com/freetaps/application</a>.",
+    "freetaps-text-4": "Freetaps a été créé par les fondateurs de Gobi.",
     "freetaps-title": "FreeTaps",
     "header-back": "Retour",
     "header-title": "À propos",
-    "gobi-text-1": "Gobi est une entreprise à impact dont la mission est d’accélérer le changement vers le réutilisable. Depuis 2011, Gobi propose des produits designs, éco-conçus et 100% fabriqués en France, alternatives durables aux objets à usage unique - gobelet, couverts, bouteilles jetables.",
-    "gobi-text-2": "Près de 10000 organisations ont déjà adopté nos produits. Grâce à cette communauté, des millions de kg de déchets ont été évités !",
-    "gobi-text-3": "Pour en savoir plus : <a href=\"https://www.gobilab.com/\">https://www.gobilab.com/</a>.",
+    "gobi-text-1": "Gobi est une entreprise à impact dont la mission est d’accélérer la bascule du jetable au réutilisable en mobilisant positivement les organisations.",
+    "gobi-text-2": "Pour cela, Gobi fabrique des produits (gourdes, couverts, lunchbox, gobelet…) qui sont éco-conçus, 100% fabriqués en France et assemblés par des personnes en situation de handicap ou en réinsertion. En tout, c’est plus de 70 emplois directs et indirects - dont une trentaine en inclusion - qui ont été créés.",
+    "gobi-text-3": "Pour ancrer durablement le changement, Gobi fournit également aux entreprises tous les outils pour que ses produits soient adoptés le plus longtemps possible (système unique de personnalisation, kit de communication, partage de bonnes pratiques, mesure d’impacts, etc.).",
+    "gobi-text-4": "Implanté à Paris et à Bordeaux, Gobi accompagne aujourd’hui près de 17 000 organisations.",
+    "gobi-text-5": "Enfin, Gobi reverse 1% de son chiffre d’affaires à des associations environnementales via le 1% pour la planète.",
+    "gobi-text-6": "Pour en savoir plus : <a href=\"https://www.gobilab.com/\">www.gobilab.com</a>.",
     "gobi-title": "Gobi",
     "terms-text-1": "L’utilisateur est appelé à exercer son jugement avant de consommer l’eau fournie par les points référencés sur l’application.",
-    "terms-text-2": "Les informations concernant ces points sont mises à disposition par FreeTaps et la communauté des utilisateurs, mais ne sauraient engager l’association ou ses prestataires. FreeTaps n’apporte aucune garantie quant à l’exactitude de la localisation des points d’eau, leur disponibilité ou la qualité de l’eau fournie.",
-    "terms-text-3": "Cela est particulièrement à prendre en compte si vous comptez planifier un itinéraire : FreeTaps ne peut garantir ses informations, nous vous invitons à contacter aussi les offices de tourisme ou autres habitants des régions que vous comptez traverser pour vous assurer que des possibilités de trouver de l’eau existent bien sur votre itinéraire.",
-    "terms-title": "Conditions d'utilisation",
-    "title": "À propos"
+    "terms-text-2": "Les informations concernant ces points sont mises à disposition par FreeTaps et la communauté des utilisateurs, mais ne sauraient engager l’association ou ses prestataires. FreeTaps n’apporte aucune garantie quant à l’exactitude de la localisation des points d’eau, leur disponibilité ou la qualité de l’eau fournie. Si vous comptez planifier un itinéraire, nous vous invitons à contacter  les offices de tourisme pour vous assurer que des possibilités de trouver de l’eau existent bien sur votre trajet.",
+    "terms-title": "Conditions d'utilisation"
   },
   "add": {
+    "confirm": {
+      "cancelButtonTitle": "Annuler",
+      "message": "Êtes-vous sûr de vouloir ajouter ce point d'eau ?",
+      "okButtonTitle": "Confirmer",
+      "title": "Ajouter le point d'eau"
+    },
     "header-back": "Retour",
     "header-title": "Ajouter un point",
+    "is-private-label": "Je suis commerçant / j’ai trouvé un commerçant prêt à remplir votre gourde gratuitement",
+    "mapGeolocationButton": "Me localiser",
+    "mapRotationButton": "Réinitialiser l'orientation",
+    "source-label": "Saisissez le nom de l'établissement :",
+    "submit-button": "Valider"
+  },
+  "add-success": {
+    "header-title": "Ajouter un point",
     "home-link": "Retour à l'accueil",
-    "text": "Cette fonctionnalité n'est pas encore disponible. Vous pouvez réinstaller l'ancienne version de FreeTaps ou surveiller les mises à jour.",
-    "title": "En cours de construction"
+    "text": "FreeTaps est une initiative associative qui ne fonctionne que grâce au bouche à oreilles ! Parlez-en à vos amis, sur les réseaux, pour faire ensemble diminuer les déchets !",
+    "title": "Merci ! Votre point d'eau sera étudié rapidement"
   },
   "favorites": {
     "header-back": "Retour",
@@ -66,8 +81,8 @@
       }
     },
     "waterPoints": {
-      "fetchErrorMessage": "Impossible de charger les points d'eau, le serveur a retourné l'erreur suivante : ",
-      "fetchErrorTitle": "Erreur de chargement"
+      "errorMessage": "Oups, il y a eu une erreur, le serveur a retourné le message suivant : ",
+      "errorTitle": "Erreur"
     }
   },
   "water-bottle": {
@@ -81,7 +96,6 @@
     "step-2-title": "Un passage au lave-vaisselle de temps à autre",
     "step-3-text": "Remplissez votre gourde à moitié avec de l’eau, et ajoutez une cuillère à café de bicarbonate de soude. Fermez votre gourde, et secouez vigoureusement. Videz, puis rincez plusieurs fois, puis laissez sécher votre gourde.",
     "step-3-title": "En cas de mauvaises odeurs",
-    "title": "Bien laver sa gourde",
     "video-title": "Vidéo tutorielle de Gobi pour bien laver sa gourde"
   }
 }

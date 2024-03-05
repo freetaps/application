@@ -27,13 +27,22 @@ ion-modal {
   }
 }
 
+ion-progress-bar {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+}
+
 component-map {
-  #map {
+  .map {
     height: 100%;
   }
 
-  #rotation-button {
+  .rotation-button, .geolocation-button {
     margin: 0;
+  }
+  .rotation-button {
     margin-top: var(--ion-safe-area-top, 0);
   }
 
@@ -49,19 +58,13 @@ component-map {
     }
 
     &-user-location-dot {
+      pointer-events: none;
       z-index: 1;
     }
   }
-
-  ion-progress-bar {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    z-index: 1;
-  }
 }
 
-component-work-in-progress {
+component-work-in-progress, page-add-success .ion-content-safe-area {
   align-items: center;
   display: flex;
   height: 100%;
@@ -72,7 +75,7 @@ component-work-in-progress {
     font-size: 5rem;
   }
 
-  p {
+  h1, p {
     text-align: center;
   }
 }
@@ -117,6 +120,52 @@ page-home {
 
     ion-button {
       align-self: center;
+    }
+  }
+}
+
+page-add {
+  .ion-content-safe-area {
+    --ion-safe-area-bottom: 0px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1, ion-checkbox, form {
+    margin-bottom: 16px;
+  }
+
+  ion-checkbox::part(label) {
+    white-space: initial;
+  }
+
+  ion-input .label-text-wrapper {
+    transform: initial !important;
+  }
+
+  .map-container {
+    border-radius: 14px;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+
+    component-map {
+      --ion-safe-area-top: 0px;
+      --ion-safe-area-right: 0px;
+      --ion-safe-area-left: 0px;
+    }
+
+    > .maplibregl-marker {
+      left: 50%;
+      pointer-events: none;
+      top: 50%;
+      transform: translate(-50%, calc(-100% + 6px));
+      z-index: 2;
+
+      svg > g > g:nth-child(2) {
+        fill: var(--ion-color-primary);
+      }
     }
   }
 }

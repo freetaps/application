@@ -49,10 +49,16 @@ const Translator = new class {
       const key = $element.dataset.i18n;
       const translation = pageTranslation?.[key];
 
-      if (translation) {
-        $element.innerHTML = translation;
-      } else {
+      if (translation === undefined) {
         console.error(`Could not find translation for: ${pageName} ${key}`);
+      } else {
+        $element.innerHTML = translation;
+
+        if (translation) {
+          $element.style.display = undefined
+        } else {
+          $element.style.display = 'none';
+        }
       }
     });
 
