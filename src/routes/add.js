@@ -16,24 +16,35 @@ customElements.define('page-add', class extends HTMLElement {
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" scroll-x="false" scroll-y="false">
-  <div class="ion-content-safe-area">
-    <form id="add-form">
-      <ion-checkbox data-i18n="is-private-label" name="is-private"></ion-checkbox>
-      <ion-input
-        data-i18n-attr="label"
-        data-i18n-attr-key="source-label"
-        disabled
-        label-placement="stacked"
-        maxlength="256"
-        name="source"
-      ></ion-input>
-    </form>
+<ion-content scroll-x="false" scroll-y="false">
+  <form id="add-form">
+    <ion-list lines="none">
+      <ion-radio-group name="type" value="FOUNTAIN">
+        <ion-item>
+          <ion-radio data-i18n="type-fountain-label" justify="space-between" value="FOUNTAIN"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-radio data-i18n="type-private-label" justify="space-between" value="PRIVATE"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <ion-item>
+        <ion-input
+          data-i18n-attr="label"
+          data-i18n-attr-key="source-label"
+          disabled
+          label-placement="floating"
+          maxlength="256"
+          name="source"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
 
     <div class="map-container">
       <component-map is-small></component-map>
     </div>
-  </div>
+  </form>
 
   <ion-progress-bar style="display: none" type="indeterminate"></ion-progress-bar>
 </ion-content>
@@ -46,7 +57,7 @@ customElements.define('page-add', class extends HTMLElement {
 
     this.$html = document.documentElement;
     this.$form = this.querySelector('form');
-    this.$checkbox = this.querySelector('ion-checkbox');
+    this.$radioGroup = this.querySelector('ion-radio-group');
     this.$input = this.querySelector('ion-input');
     this.$mapContainer = this.querySelector('.map-container');
     this.$mapComponent = this.querySelector('component-map');
@@ -57,26 +68,27 @@ customElements.define('page-add', class extends HTMLElement {
 
     this.$html.addEventListener('languageChange', this._onLanguageChange);
     this.$form.addEventListener('submit', this._onSubmit);
-    this.$checkbox.addEventListener('ionChange', this._onIsPrivateChange);
+    this.$radioGroup.addEventListener('ionChange', this._onTypeChange);
     this.$mapComponent.addEventListener('load', this._onMapLoad);
   }
 
   disconnectedCallback() {
     this.$html.removeEventListener('languageChange', this._onLanguageChange);
     this.$form.removeEventListener('submit', this._onSubmit);
-    this.$checkbox.removeEventListener('ionChange', this._onIsPrivateChange);
+    this.$radioGroup.removeEventListener('ionChange', this._onTypeChange);
     this.$mapComponent.removeEventListener('load', this._onMapLoad);
   }
 
-  _onIsPrivateChange = ({ detail }) => {
-    if (detail.checked) {
+  _onTypeChange = ({ detail }) => {
+    if (detail.value === 'FOUNTAIN') {
+      this.$input.disabled = true;
+    }
+    if (detail.value === 'PRIVATE') {
       this.$input.disabled = false;
 
       requestAnimationFrame(() => {
         this.$input.setFocus();
       });
-    } else {
-      this.$input.disabled = true;
     }
   }
 
@@ -105,7 +117,7 @@ customElements.define('page-add', class extends HTMLElement {
       const formData = new FormData(event.target);
       const center = this.$mapComponent.$map.getCenter();
       const result = await addWaterPoint({
-        isPrivate: formData.get('is-private') === 'on',
+        isPrivate: formData.get('type') === 'PRIVATE',
         latitude: center.lat,
         longitude: center.lng,
         source: formData.get('source')

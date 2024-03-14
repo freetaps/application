@@ -27,11 +27,12 @@
     },
     "header-back": "Retour",
     "header-title": "Ajouter un point",
-    "is-private-label": "Je suis commerçant / j’ai trouvé un commerçant prêt à remplir votre gourde gratuitement",
     "mapGeolocationButton": "Me localiser",
     "mapRotationButton": "Réinitialiser l'orientation",
-    "source-label": "Saisissez le nom de l'établissement :",
-    "submit-button": "Valider"
+    "source-label": "Nom de l'établissement",
+    "submit-button": "Valider",
+    "type-fountain-label": "Je propose un point d'eau (fontaine, robinet) en accès libre",
+    "type-private-label": "Je propose un point d'eau chez un commerçant prêt à remplir votre gourde gratuitement"
   },
   "add-success": {
     "header-title": "Ajouter un point",

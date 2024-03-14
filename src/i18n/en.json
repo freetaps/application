@@ -27,11 +27,12 @@
     },
     "header-back": "Back",
     "header-title": "Add a point",
-    "is-private-label": "I am a merchant / I found a merchant ready to fill your bottle for free",
     "mapGeolocationButton": "Locate me",
     "mapRotationButton": "Reset orientation",
-    "source-label": "Enter the name of the merchant :",
-    "submit-button": "Confirm"
+    "source-label": "Merchant name",
+    "submit-button": "Confirm",
+    "type-fountain-label": "I offer a water point (fountain, tap) with free access",
+    "type-private-label": "I offer a water point from a merchant ready to fill your bottle for free"
   },
   "add-success": {
     "header-title": "Add a point",

@@ -125,35 +125,23 @@ page-home {
 }
 
 page-add {
-  .ion-content-safe-area {
-    --ion-safe-area-bottom: 0px;
-
+  form {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
-  h1, ion-checkbox, form {
-    margin-bottom: 16px;
-  }
-
-  ion-checkbox::part(label) {
+  ion-radio::part(label) {
     white-space: initial;
   }
 
-  ion-input .label-text-wrapper {
-    transform: initial !important;
-  }
-
   .map-container {
-    border-radius: 14px;
     flex: 1;
-    overflow: hidden;
     position: relative;
 
     component-map {
+      --ion-safe-area-bottom: 0px;
       --ion-safe-area-top: 0px;
-      --ion-safe-area-right: 0px;
-      --ion-safe-area-left: 0px;
     }
 
     > .maplibregl-marker {
