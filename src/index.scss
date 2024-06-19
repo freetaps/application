@@ -157,3 +157,12 @@ page-add {
     }
   }
 }
+
+component-water-point-record {
+  .water-point-position {
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+  }
+}
