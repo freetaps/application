@@ -1,3 +1,4 @@
+import { isPlatform } from '@ionic/core';
 import Translator from '../i18n/i18n';
 
 customElements.define('component-water-point-record', class extends HTMLElement {
@@ -9,10 +10,17 @@ customElements.define('component-water-point-record', class extends HTMLElement 
     <ion-list-header>
       <h1 class="water-point-title"></h1>
     </ion-list-header>
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-button class="water-point-link" color="primary" fill="solid">
+          <ion-icon aria-hidden="true" name="map" slot="start"></ion-icon>
+          <span data-i18n="position-link"></span>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
     <ion-item>
       <ion-icon aria-hidden="true" name="location-outline" slot="start"></ion-icon>
       <ion-label class="water-point-position"></ion-label>
-      <ion-button class="water-point-position-link" data-i18n="position-link" slot="end"></ion-button>
     </ion-item>
     <ion-item lines="none">
       <ion-icon aria-hidden="true" name="checkmark" slot="start"></ion-icon>
@@ -22,8 +30,8 @@ customElements.define('component-water-point-record', class extends HTMLElement 
 </div>`;
 
     this.$html = document.documentElement;
+    this.$link = this.querySelector('.water-point-link');
     this.$positionText = this.querySelector('.water-point-position');
-    this.$positionLink = this.querySelector('.water-point-position-link');
     this.$title = this.querySelector('.water-point-title');
     this.$useText = this.querySelector('.water-point-use');
   }
@@ -72,7 +80,12 @@ customElements.define('component-water-point-record', class extends HTMLElement 
         : this.translation.defaultTitle;
       this.$positionText.innerText = `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
       this.$useText.innerText = this._computeUseText(this.feature.properties.nbOfUse);
-      this.$positionLink.href = `geo:${latitude},${longitude}?q=${latitude},${longitude}`;
+
+      if (isPlatform('cordova') && isPlatform('android')) {
+        this.$link.href = `geo:${latitude},${longitude}?q=${latitude},${longitude}`;
+      } else if (isPlatform('cordova') && isPlatform('ios')) {
+        this.$link.href = `maps://?q=${latitude},${longitude}`;
+      }
     }
   }
 });
