@@ -58,6 +58,7 @@
     "menu-favorites": "Favoris",
     "menu-water-bottle": "Bien laver sa gourde",
     "position-link": "S'y rendre",
+    "report-link": "Signaler un problème",
     "tabs-add": "Ajouter un point",
     "tabs-favorites": "Favoris",
     "tabs-menu": "Menu",
@@ -85,6 +86,28 @@
       "errorMessage": "Oups, il y a eu une erreur, le serveur a retourné le message suivant : ",
       "errorTitle": "Erreur"
     }
+  },
+  "report": {
+    "comment-label": "Commentaire",
+    "confirm": {
+      "cancelButtonTitle": "Annuler",
+      "message": "Êtes-vous sûr de vouloir signaler ce point d'eau ?",
+      "okButtonTitle": "Confirmer",
+      "title": "Signaler le point d'eau"
+    },
+    "header-back": "Retour",
+    "header-title": "Signaler un problème",
+    "submit-button": "Valider",
+    "reason-closed-label": "Le point d'eau est fermé",
+    "reason-inaccessible-label": "Le point d'eau n'est pas accessible",
+    "reason-nonexistent-label": "Le point d'eau n'existe pas",
+    "reason-other-label": "Autre"
+  },
+  "report-success": {
+    "header-title": "Signaler un problème",
+    "home-link": "Retour à l'accueil",
+    "text": "FreeTaps est une initiative associative qui ne fonctionne que grâce au bouche à oreilles ! Parlez-en à vos amis, sur les réseaux, pour faire ensemble diminuer les déchets !",
+    "title": "Merci ! Votre signalement sera étudié rapidement"
   },
   "water-bottle": {
     "header-back": "Retour",

@@ -26,12 +26,19 @@ customElements.define('component-water-point-record', class extends HTMLElement 
       <ion-icon aria-hidden="true" name="checkmark" slot="start"></ion-icon>
       <ion-label class="water-point-use"></ion-label>
     </ion-item>
+    <ion-item class="ion-text-center" lines="none">
+      <ion-button class="water-point-report-link" color="danger" fill="clear">
+        <ion-icon aria-hidden="true" name="alert-circle-outline" slot="start"></ion-icon>
+        <span data-i18n="report-link"></span>
+      </ion-button>
+    </ion-item>
   </ion-list>
 </div>`;
 
     this.$html = document.documentElement;
     this.$link = this.querySelector('.water-point-link');
     this.$positionText = this.querySelector('.water-point-position');
+    this.$reportLink = this.querySelector('.water-point-report-link');
     this.$title = this.querySelector('.water-point-title');
     this.$useText = this.querySelector('.water-point-use');
   }
@@ -80,6 +87,7 @@ customElements.define('component-water-point-record', class extends HTMLElement 
         : this.translation.defaultTitle;
       this.$positionText.innerText = `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
       this.$useText.innerText = this._computeUseText(this.feature.properties.nbOfUse);
+      this.$reportLink.href = `/report/${this.feature.properties.id}`;
 
       if (isPlatform('cordova') && isPlatform('android')) {
         this.$link.href = `geo:${latitude},${longitude}?q=${latitude},${longitude}`;

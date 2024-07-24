@@ -64,7 +64,9 @@ component-map {
   }
 }
 
-component-work-in-progress, page-add-success .ion-content-safe-area {
+component-work-in-progress,
+page-add-success .ion-content-safe-area,
+page-report-success .ion-content-safe-area {
   align-items: center;
   display: flex;
   height: 100%;
@@ -164,5 +166,9 @@ component-water-point-record {
     -webkit-user-select: all;
     -ms-user-select: all;
     user-select: all;
+  }
+
+  .water-point-report-link {
+    margin: auto;
   }
 }

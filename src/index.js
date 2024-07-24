@@ -14,6 +14,8 @@ import './routes/add-success';
 import './routes/about';
 import './routes/favorites';
 import './routes/home';
+import './routes/report';
+import './routes/report-success';
 import './routes/water-bottle';
 
 Translator.setup();

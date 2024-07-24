@@ -124,7 +124,7 @@ customElements.define('page-add', class extends HTMLElement {
       });
 
       if (result) {
-        this.$html.querySelector('ion-router').push('/add-success')
+        this.$html.querySelector('ion-router').push('/add-success');
       }
 
       this.$submitButton.disabled = false;

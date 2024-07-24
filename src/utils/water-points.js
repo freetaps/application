@@ -70,3 +70,27 @@ export async function fetchWaterPoints() {
 
   return null;
 }
+
+export async function reportWaterPoint({ id, reason }) {
+  const { token } = await getInfo();
+
+  try {
+    const response = await fetch(
+      `https://api.freetaps.earth/waterpoints/report/${id}/${encodeURIComponent(reason)}`,
+      {
+        headers: { Authorization: `Basic ${token}` },
+        method: 'PATCH'
+      }
+    );
+
+    if (response.ok) {
+      return response.json();
+    }
+
+    await alertError(response?.statusText);
+  } catch (error) {
+    await alertError(error);
+  }
+
+  return null;
+}

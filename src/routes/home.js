@@ -87,6 +87,8 @@ customElements.define('page-home', class extends HTMLElement {
   }
 
   disconnectedCallback() {
+    this.$waterPointModal.dismiss();
+
     this.removeEventListener('waterPointClick', this._onWaterPointClick);
     this.$html.removeEventListener('languageChange', this._onLanguageChange);
     this.$menuCloseButton.removeEventListener('click', this._onMenuClose);

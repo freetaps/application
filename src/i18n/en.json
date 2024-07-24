@@ -58,6 +58,7 @@
     "menu-favorites": "Favorites",
     "menu-water-bottle": "Washing your water bottle",
     "position-link": "Get there",
+    "report-link": "Report an issue",
     "tabs-add": "Add a point",
     "tabs-favorites": "Favorites",
     "tabs-menu": "Menu",
@@ -85,6 +86,28 @@
       "errorMessage": "Oops, there was an error, the server returned the following message: ",
       "errorTitle": "Error"
     }
+  },
+  "report": {
+    "comment-label": "Comment",
+    "confirm": {
+      "cancelButtonTitle": "Cancel",
+      "message": "Are you sure you want to report this water point?",
+      "okButtonTitle": "Confirm",
+      "title": "Report the water point"
+    },
+    "header-back": "Back",
+    "header-title": "Report an issue",
+    "submit-button": "Confirm",
+    "reason-closed-label": "The water point is closed",
+    "reason-inaccessible-label": "The water point is not reachable",
+    "reason-nonexistent-label": "The water point does not exist",
+    "reason-other-label": "Other"
+  },
+  "report-success": {
+    "header-title": "Report an issue",
+    "home-link": "Go back home",
+    "text": "FreeTaps is an initiative supported by the non-profit organisation FreeTaps that works only by word of mouth ! Speak about it around you, on social networks, and together let's cut down on waste !",
+    "title": "Thanks ! Your report will be quickly studied"
   },
   "water-bottle": {
     "header-back": "Back",
