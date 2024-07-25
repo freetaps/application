@@ -1,18 +1,18 @@
 PODS:
-  - Capacitor (5.5.0):
+  - Capacitor (6.1.1):
     - CapacitorCordova
-  - CapacitorAppLauncher (5.0.6):
+  - CapacitorAppLauncher (6.0.1):
     - Capacitor
-  - CapacitorCordova (5.5.0)
-  - CapacitorDevice (5.0.6):
+  - CapacitorCordova (6.1.1)
+  - CapacitorDevice (6.0.0):
     - Capacitor
-  - CapacitorDialog (5.0.6):
+  - CapacitorDialog (6.0.0):
     - Capacitor
-  - CapacitorGeolocation (5.0.6):
+  - CapacitorGeolocation (6.0.0):
     - Capacitor
-  - CapacitorPreferences (5.0.6):
+  - CapacitorPreferences (6.0.1):
     - Capacitor
-  - CapacitorSplashScreen (5.0.6):
+  - CapacitorSplashScreen (6.0.1):
     - Capacitor
 
 DEPENDENCIES:
@@ -44,14 +44,14 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/splash-screen"
 
 SPEC CHECKSUMS:
-  Capacitor: 57890b363df14d5d2d5d8461aa23e886cb34da2a
-  CapacitorAppLauncher: 5a9f06c13c6b4f5d65b550a07128ef04f3a216b3
-  CapacitorCordova: 3d3908a3d208a11a75f9df3b18c4405c4de76e1d
-  CapacitorDevice: 2c968f98a1ec4d22357418c1521e7ddc46c675e6
-  CapacitorDialog: 0f3c15dfe9414b83bc64aef4078f1b92bcfead26
-  CapacitorGeolocation: 7be5f77abc205c0efe319fff8587a7183e7b0240
-  CapacitorPreferences: f03954bcb0ff09c792909e46bff88e3183c16b10
-  CapacitorSplashScreen: 5fa2ab5e46cf5cc530cf16a51c80c7a986579ccd
+  Capacitor: 8941aba4364ba9d1b22188569001f2ce45cc2b00
+  CapacitorAppLauncher: ca97e232064f293cc23a0083f237af74a2976add
+  CapacitorCordova: 8f2cc8d8d3619c566e9418fe8772064a94266106
+  CapacitorDevice: f8fd88f9edd1261c55a109f32015b09bbbfdc4a0
+  CapacitorDialog: 64aa82840ee5e9c066f9e1a49c1e186afd3f24d2
+  CapacitorGeolocation: 1f12bbe372b65116e851bd8e3a94cf0ef9bacebb
+  CapacitorPreferences: 72909b165bc7807103778ddbb86d5d8ce06abf71
+  CapacitorSplashScreen: 61645214e8f955ff2b80f16a6a3648960fe4c89f
 
 PODFILE CHECKSUM: 13d99e5d4083d3dcf90129262b96131c51b2631d
 

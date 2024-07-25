@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     namespace "earth.freetaps.freetaps"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "earth.freetaps.freetaps"
         minSdkVersion rootProject.ext.minSdkVersion
